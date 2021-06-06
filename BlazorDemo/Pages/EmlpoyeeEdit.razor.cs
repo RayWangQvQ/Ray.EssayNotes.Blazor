@@ -9,16 +9,21 @@ using Microsoft.AspNetCore.Components;
 
 namespace BlazorDemo.Pages
 {
-    public class EmployeeOverviewBase : ComponentBase
+    public partial class EmlpoyeeEdit
     {
         [Inject]
         public HttpClient HttpClient { get; set; }
 
-        public IEnumerable<Employee> Employees { get; set; } = new List<Employee>();
+        [Parameter]
+        public string EmployeeId { get; set; }
+
+        public Employee Employee { get; set; } = new Employee();
+
+        protected string AddOrEdit => string.IsNullOrWhiteSpace(EmployeeId) ? "Add" : "Edit";
 
         protected override async Task OnInitializedAsync()
         {
-            Employees = await this.HttpClient.GetFromJsonAsync<IEnumerable<Employee>>("api/department/1/employee");
+            this.Employee = await this.HttpClient.GetFromJsonAsync<Employee>($"api/employee/{EmployeeId}");
 
             await base.OnInitializedAsync();
 

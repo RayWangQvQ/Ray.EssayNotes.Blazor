@@ -16,15 +16,16 @@
     <tbody>
         @foreach (var item in Employees)
         {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.DepartmentId</td>
-                <td>@item.Name</td>
-                <td>@item.BirthDate</td>
-                <td>
-                    <a href="@($"employeedetail/{item.Id}")" class="btn btn-primary btn-sm">Detail</a>
-                </td>
-            </tr>
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.DepartmentId</td>
+            <td>@item.Name</td>
+            <td>@item.BirthDate</td>
+            <td>
+                <a href="@($"employeedetail/{item.Id}")" class="btn btn-primary btn-sm">Detail</a>
+                <a href="@($"employee/{item.Id}")" class="btn btn-primary btn-sm">Edit</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

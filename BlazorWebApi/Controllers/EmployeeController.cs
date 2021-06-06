@@ -18,6 +18,7 @@ namespace BlazorWebApi.Controllers
         }
 
         [HttpGet]
+        [Route("/api/Department/{departmentId}/[controller]")]
         public async Task<ActionResult<IList<Employee>>> GetAllForDepartment(int departmentId)
         {
             var re = await _employeeRepository.GetForDepartmentAsync(departmentId);
@@ -26,7 +27,7 @@ namespace BlazorWebApi.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<Employee>> GetOneForDepartment(int id)
+        public async Task<ActionResult<Employee>> GetOne(int id)
         {
             var re = await _employeeRepository.GetOneAsync(id);
             return re;

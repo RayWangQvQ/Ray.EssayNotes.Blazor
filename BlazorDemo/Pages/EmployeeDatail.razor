@@ -1,5 +1,4 @@
 ﻿@page "/employeedetail/{EmployId}"
-@inherits EmployeeDatailBase
 
 <h3>EmployeeDatail</h3>
 
@@ -10,4 +9,25 @@
     <div>@this.Employee.PictureUrl</div>
     <div>@this.Employee.BirthDate</div>
 </div>
+
+<h1>双向绑定（鼠标离开后）</h1>
+<div>
+    <h3>Employee Name:</h3><input @bind="@this.Employee.Name" />
+</div>
+
+<h2>双向绑定（输入即触发）</h2>
+<div>
+    <h3>Employee Name:</h3><input @bind="@this.Employee.Name" @bind:event="oninput" />
+</div>
+
+<div>
+    <button @onclick="@Button_Click">Click</button>
+</div>
+
+@code{
+    public void Button_Click()
+    {
+        this.Employee.Name = "张三";
+    }
+}
 

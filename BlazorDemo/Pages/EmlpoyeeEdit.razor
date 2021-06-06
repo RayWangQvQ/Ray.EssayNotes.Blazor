@@ -1,0 +1,32 @@
+﻿@page "/employee"
+@page "/employee/{EmployeeId}"
+
+<h3>Emlpoyee @this.AddOrEdit</h3>
+
+<EditForm Model="@this.Employee">
+    <div class="form-group row">
+        <label for="no" class="col-sm-2 col-form-label">编号</label>
+        <div>
+            <InputText id="no" class="form-control" @bind-Value="@this.Employee.No" />
+        </div>
+    </div>
+
+    <div>
+        <label>姓名</label>
+        <div>
+            <InputText @bind-Value="@this.Employee.Name" />
+        </div>
+    </div>
+
+    <div>
+        <label>出生日期</label>
+        <div>
+            <InputDate @bind-Value="@this.Employee.BirthDate" />
+        </div>
+    </div>
+
+</EditForm>
+
+@code {
+
+}
