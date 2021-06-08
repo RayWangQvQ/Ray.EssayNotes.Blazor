@@ -32,5 +32,13 @@ namespace BlazorWebApi.Controllers
             var re = await _employeeRepository.GetOneAsync(id);
             return re;
         }
+
+        [HttpPut]
+        public async Task<ActionResult> Update([FromBody] Employee update)
+        {
+            await this._employeeRepository.UpdateAsync(update);
+
+            return Ok();
+        }
     }
 }

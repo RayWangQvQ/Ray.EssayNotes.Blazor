@@ -3,11 +3,13 @@
 
 <h3>Emlpoyee @this.AddOrEdit</h3>
 
-<EditForm Model="@this.Employee">
+<EditForm Model="@this.Employee" OnValidSubmit="@OnValidSubmit" OnInvalidSubmit="@HandleInvalidSubmit">
+    <ValidationSummary>test</ValidationSummary>
     <div class="form-group row">
         <label for="no" class="col-sm-2 col-form-label">编号</label>
         <div>
             <InputText id="no" class="form-control" @bind-Value="@this.Employee.No" />
+            <ValidationMessage For="@(() => Employee.No)" />
         </div>
     </div>
 
@@ -25,8 +27,10 @@
         </div>
     </div>
 
+    <div class="form-group row offset-sm-2">
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+    </div>
+
 </EditForm>
 
-@code {
 
-}
